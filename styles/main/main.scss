@@ -1,0 +1,245 @@
+$duration-fisrt: 1s;
+$duration-sec: 1s;
+$delay-sec: $duration-fisrt + 1s;
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+@mixin cover {
+    width: 100%;
+    height: 100%;
+}
+
+.halfCircleRight {
+    height: 16px;
+    width: 8px;
+    border-radius: 0 90px 90px 0;
+    background: #2E2E2E;
+    display: inline-block;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    .left {
+        background-color: #F5F5F5;
+        padding: 4rem;
+        @include cover();
+        max-height: 100vh;
+        .halfCircleRight {
+            transform: translateY(15%);
+        }
+        .content {
+            width: 50%;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            padding: 150px 0;
+            .titles {
+                width: 100%;
+                height: 80px;
+                overflow: hidden;
+                .title {
+                    font-size: 48px;
+                    font-weight: bolder;
+
+                    animation-name: fadeToTop;
+                    animation-duration: $delay-sec + 900ms;
+                    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                
+                    animation-delay: 100ms;
+                }
+            }
+            .texts {
+                height: 90px;
+                overflow: hidden;
+                .text {
+                    font-size: 12px;
+                    color: #595959;
+                    
+                    animation-name: fadeToTop;
+                    animation-duration:  $delay-sec  + 900ms;
+                    animation-delay: 100ms;
+                    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+                }
+            }
+        }
+        .brand {
+            position: relative;
+            padding-left: 10px;
+            font-size: 14px;
+            font-weight: bolder;
+        }
+    }
+    .right {
+
+        @include cover();
+        background-color: red;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        .img-cont {
+            background-color: #1A1A1A;
+            position: relative;
+            .fading-div {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                overflow: hidden;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #FF2A0D;
+                    animation-name: images-bg-color-change;
+                    animation-duration: $duration-sec + $delay-sec;
+                    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                    animation-fill-mode: forwards;
+                }
+            }
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                top: 50%;
+                z-index: 100;
+                overflow: hidden;
+                transform: translateX(-50%) translateY(-50%);
+                width: 100%;
+                height: 80%;
+                img {
+                    position: absolute;
+                    &:first-child {
+                        animation-name: first-img-animation;
+                        animation-duration: $duration-fisrt;
+                        animation-fill-mode: forwards;
+                        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                    }
+                    &:last-child {
+                        animation-name: second-img-animation;
+                        animation-duration: $duration-sec;
+                        animation-delay: $delay-sec;
+                        animation-fill-mode: forwards;
+                        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                    }
+                }
+            }
+        }
+        .right-nav {
+            color: #FFBEB6;
+            background-color: #FF2A0D;
+            text-align: center;
+            padding: 50px 0;
+            display: grid;
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                li {
+                    transform: rotate(90deg);
+                    padding: 40px 0;
+                    font-size: 14px;
+                }
+            }
+            .radios {
+                position: relative;
+                bottom: 0;
+            }
+        }
+    }
+    .icons {
+        i {
+            background-color: #FF5B2D;
+            padding: 7px;
+            border-radius: 110%;
+            overflow: hidden;
+            font-size: 8px;
+            color: white;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@keyframes first-img-animation {
+    from {
+        transform: translateX(-100%);
+        z-index: 1;
+    }
+    to {
+        transform: translateX(0%);
+        z-index: 2;
+    }
+}
+
+@keyframes second-img-animation {
+    from {
+        transform: translateX(-100%);
+        z-index: 2;
+    }
+    to {
+        transform: translateX(0%);
+        z-index: 2;
+    }
+}
+
+@keyframes first-img-animation {
+    from {
+        transform: translateX(-100%);
+        z-index: 1;
+    }
+    to {
+        transform: translateX(0%);
+        z-index: 2;
+    }
+}
+
+@keyframes second-img-animation {
+    from {
+        transform: translateX(100%);
+        z-index: 2;
+    }
+    to {
+        transform: translateX(0%);
+        z-index: 2;
+    }
+}
+
+@keyframes images-bg-color-change {
+    0% {
+        left: -100%;
+    }
+    40% {
+        left: 200%;
+    }
+    100% {
+        left: -110%;
+    }
+}
+
+@keyframes fadeToTop{
+    0%{
+        transform: translateY(0);
+    }
+    35%{
+        transform: translateY(-100%);        
+    }
+    65%{
+        transform: translateY(-100%);  
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
