@@ -54,38 +54,50 @@ html {
 .container .left .content .titles {
   width: 100%;
   height: 80px;
-  overflow: hidden;
+  position: relative;
+}
+
+.container .left .content .titles .title__item {
+  -webkit-animation-name: fadeToTop;
+          animation-name: fadeToTop;
+  -webkit-animation-duration: 2.9s;
+          animation-duration: 2.9s;
+  -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+          animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  -webkit-animation-delay: 100ms;
+          animation-delay: 100ms;
+  position: absolute;
+  background-color: #F5F5F5;
 }
 
 .container .left .content .titles .title {
   font-size: 48px;
   font-weight: bolder;
-  -webkit-animation-name: fadeToTop;
-          animation-name: fadeToTop;
-  -webkit-animation-duration: 2.9s;
-          animation-duration: 2.9s;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-          animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  -webkit-animation-delay: 100ms;
-          animation-delay: 100ms;
 }
 
 .container .left .content .texts {
   height: 90px;
-  overflow: hidden;
+  width: 300px;
+  position: relative;
+}
+
+.container .left .content .texts .texts__item {
+  -webkit-animation-name: fadeToTop;
+          animation-name: fadeToTop;
+  -webkit-animation-duration: 2.9s;
+          animation-duration: 2.9s;
+  -webkit-animation-delay: 100ms;
+          animation-delay: 100ms;
+  -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+          animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  position: absolute;
+  background-color: #F5F5F5;
 }
 
 .container .left .content .texts .text {
   font-size: 12px;
   color: #595959;
-  -webkit-animation-name: fadeToTop;
-          animation-name: fadeToTop;
-  -webkit-animation-duration: 2.9s;
-          animation-duration: 2.9s;
-  -webkit-animation-delay: 100ms;
-          animation-delay: 100ms;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-          animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  color: red;
 }
 
 .container .left .brand {
@@ -117,7 +129,7 @@ html {
   overflow: hidden;
 }
 
-.container .right .img-cont .fading-div::before {
+.container .right .img-cont .fading-div-extra::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -125,8 +137,8 @@ html {
   background-color: #FF2A0D;
   -webkit-animation-name: images-bg-color-change;
           animation-name: images-bg-color-change;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
+  -webkit-animation-duration: 1200ms;
+          animation-duration: 1200ms;
   -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
           animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   -webkit-animation-fill-mode: forwards;
@@ -155,26 +167,8 @@ html {
 
 .container .right .img-cont .container img {
   position: absolute;
-}
-
-.container .right .img-cont .container img:first-child {
-  -webkit-animation-name: first-img-animation;
-          animation-name: first-img-animation;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-          animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-}
-
-.container .right .img-cont .container img:last-child {
-  -webkit-animation-name: second-img-animation;
-          animation-name: second-img-animation;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
   -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
@@ -221,42 +215,14 @@ html {
   cursor: pointer;
 }
 
-@-webkit-keyframes first-img-animation {
-  from {
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
-    z-index: 1;
-  }
-  to {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-    z-index: 2;
-  }
-}
-
-@keyframes first-img-animation {
-  from {
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
-    z-index: 1;
-  }
-  to {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-    z-index: 2;
-  }
-}
-
 @-webkit-keyframes second-img-animation {
   from {
     -webkit-transform: translateX(-100%);
             transform: translateX(-100%);
-    z-index: 2;
   }
   to {
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
-    z-index: 2;
   }
 }
 
@@ -264,38 +230,10 @@ html {
   from {
     -webkit-transform: translateX(-100%);
             transform: translateX(-100%);
-    z-index: 2;
   }
   to {
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
-    z-index: 2;
-  }
-}
-
-@keyframes first-img-animation {
-  from {
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
-    z-index: 1;
-  }
-  to {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-    z-index: 2;
-  }
-}
-
-@keyframes second-img-animation {
-  from {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-    z-index: 2;
-  }
-  to {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-    z-index: 2;
   }
 }
 
@@ -303,11 +241,8 @@ html {
   0% {
     left: -100%;
   }
-  40% {
-    left: 200%;
-  }
   100% {
-    left: -110%;
+    left: 200%;
   }
 }
 
@@ -315,11 +250,8 @@ html {
   0% {
     left: -100%;
   }
-  40% {
-    left: 200%;
-  }
   100% {
-    left: -110%;
+    left: 200%;
   }
 }
 
@@ -359,5 +291,13 @@ html {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
+}
+
+.img-zIndex-1 {
+  z-index: 1;
+}
+
+.img-zIndex-2 {
+  z-index: 2;
 }
 /*# sourceMappingURL=main.css.map */

@@ -8,8 +8,8 @@
     <title>heart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <style>
 
     </style>
@@ -26,23 +26,26 @@
             <div class="content">
                 <div>
                     <div class="titles">
-                        <div class="title">Gabe</div>
-                        <div class="title">Aspekt</div>
-                    </div >
+                        <div class="title title__item">Gabe</div>
+                        <div class="title title__item">Aspekt</div>
+                    </div>
 
                     <div class="texts">
-                        <div class="text">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book.
+                        <div class="text texts__item">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley
+                            of type and scrambled it to make a type specimen book.
+                        </div>
+                        <div class="text texts__item">
+                            It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                            more-or-less
+                            normal
+                        </div>
                     </div>
-                    <div class="text">
-                        It is a long established fact that a reader will be distracted by the readable content of a
-                        page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
-                        normal
-                    </div>
-                    </div>
-                    
+
                 </div>
             </div>
 
@@ -55,9 +58,9 @@
         <div class="right">
             <div class="img-cont">
                 <div class="fading-div"></div>
-                <div class="container">
-                    <img src="images/img1.png" alt="black">
-                    <img src="images/img2.png" alt="black">
+                <div class="container" data-match="matched-lists">
+                    <img data-match__item="item_1" src="images/img1.png" alt="black" data-match="img-1">
+                    <img data-match__item="item_2" src="images/img2.png" alt="black" data-match="img-2">
                 </div>
 
             </div>
@@ -70,14 +73,38 @@
                     <li>Instagram</li>
                     <li>Tweeter</li>
                 </ul>
-                <div>
-                    <i class="far fa-circle"></i>
-                    <i class="far fa-circle"></i>
-                    <i class="far fa-circle"></i>
+                <div data-match="#matched-lists">
+                    <input type="radio" name="check" data-match__item="item_1">
+                    <input type="radio" name="check" data-match__item="item_2">
+                    <input type="radio" name="check" data-match__item="item_3">
                 </div>
             </div>
         </div>
     </div>
+
+    <div data-match="#hi"></div>
+    <script>
+        $(document).ready(function () {
+
+            let data_match = $('div[data-match^="#"]').each(function () {
+                let attrVal = $(this).attr('data-match').slice(1);
+
+                $(this).find(`*[data-match__item]`).on('click', function () {
+                    let itemConn = $(this).attr('data-match__item'),
+                        relatedItem = $(`div[data-match=${attrVal}]`);
+                    doMyTasks(relatedItem.find(`*[data-match__item]`), relatedItem.find(
+                        `*[data-match__item = ${itemConn}]`));
+                });
+
+                function doMyTasks(items, connItem) {
+                    items.removeClass('img-zIndex-2').css('animation-name','');
+                    connItem.addClass('img-zIndex-2').css('animation-name','second-img-animation');
+                    $('.right .img-cont .fading-div').addClass('fading-div-extra');
+                    setTimeout(function(){   $('.right .img-cont .fading-div').removeClass('fading-div-extra');}, 1300);
+                }
+            });
+        })
+    </script>
 
 </body>
 
