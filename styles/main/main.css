@@ -53,21 +53,22 @@ html {
 
 .container .left .content .titles {
   width: 100%;
-  height: 80px;
+  height: 70px;
   position: relative;
+  overflow: hidden;
 }
 
 .container .left .content .titles .title__item {
-  -webkit-animation-name: fadeToTop;
-          animation-name: fadeToTop;
-  -webkit-animation-duration: 2.9s;
-          animation-duration: 2.9s;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
   -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
           animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  -webkit-animation-delay: 100ms;
-          animation-delay: 100ms;
   position: absolute;
   background-color: #F5F5F5;
+  top: 0;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  width: 100%;
 }
 
 .container .left .content .titles .title {
@@ -77,17 +78,16 @@ html {
 
 .container .left .content .texts {
   height: 90px;
+  overflow: hidden;
   width: 300px;
   position: relative;
 }
 
 .container .left .content .texts .texts__item {
-  -webkit-animation-name: fadeToTop;
-          animation-name: fadeToTop;
-  -webkit-animation-duration: 2.9s;
-          animation-duration: 2.9s;
-  -webkit-animation-delay: 100ms;
-          animation-delay: 100ms;
+  width: 100%;
+  height: 100%;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
   -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
           animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   position: absolute;
@@ -257,16 +257,8 @@ html {
 
 @-webkit-keyframes fadeToTop {
   0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  35% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  65% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
   }
   100% {
     -webkit-transform: translateY(0);
@@ -276,16 +268,8 @@ html {
 
 @keyframes fadeToTop {
   0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  35% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  65% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
   }
   100% {
     -webkit-transform: translateY(0);
@@ -293,11 +277,11 @@ html {
   }
 }
 
-.img-zIndex-1 {
+.zIndex-1 {
   z-index: 1;
 }
 
-.img-zIndex-2 {
+.zIndex-2 {
   z-index: 2;
 }
 /*# sourceMappingURL=main.css.map */

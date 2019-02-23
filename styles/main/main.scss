@@ -1,7 +1,5 @@
 $duration-fisrt: 1s;
 $duration-sec: 1s;
-$delay-sec: $duration-fisrt+1s;
-
 body,
 html {
     margin: 0;
@@ -30,67 +28,62 @@ html {
     height: 100vh;
     margin: 0;
     overflow: hidden;
-
     .left {
         background-color: #F5F5F5;
         padding: 4rem;
         @include cover();
         max-height: 100vh;
-
         .halfCircleRight {
             transform: translateY(15%);
         }
-
         .content {
             width: 50%;
             display: grid;
             justify-content: center;
             align-items: center;
             padding: 150px 0;
-
             .titles {
                 width: 100%;
-                height: 80px;
+                height: 70px;
                 position: relative;
-
-                .title__item{
-                    animation-name: fadeToTop;
-                    animation-duration: $delay-sec + 900ms;
+                overflow: hidden;
+                .title__item {
+                    animation-duration: $duration-fisrt;
                     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-                    animation-delay: 100ms;
                     position: absolute;
                     background-color: #F5F5F5;
+                    top: 0;
+                    animation-fill-mode: forwards;
+                    width : 100%;
                 }
-
                 .title {
                     font-size: 48px;
-                    font-weight: bolder;                    
+                    font-weight: bolder;
                 }
             }
-
             .texts {
                 height: 90px;
-                // overflow: hidden;
-                width : 300px;
+                overflow: hidden;
+                width: 300px;
                 position: relative;
 
-                .texts__item{
-                    animation-name: fadeToTop;
-                    animation-duration: $delay-sec + 900ms;
-                    animation-delay: 100ms;
+                .texts__item {
+                    // animation-name: fadeToTop;
+                    width : 100%;
+                    height : 100%;
+                    animation-duration: $duration-fisrt;
+                    
                     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
                     position: absolute;
                     background-color: #F5F5F5;
                 }
-
                 .text {
                     font-size: 12px;
                     color: #595959;
-                    color : red;
+                    color: red;
                 }
             }
         }
-
         .brand {
             position: relative;
             padding-left: 10px;
@@ -98,27 +91,21 @@ html {
             font-weight: bolder;
         }
     }
-
     .right {
-
         @include cover();
         background-color: red;
         display: grid;
         grid-template-columns: 2fr 1fr;
-
         .img-cont {
             background-color: #1A1A1A;
             position: relative;
-
             .fading-div {
                 width: 100%;
                 height: 100%;
                 position: absolute;
                 overflow: hidden;
             }
-
             .fading-div-extra {
-                
                 &::before {
                     content: '';
                     position: absolute;
@@ -131,7 +118,6 @@ html {
                     animation-fill-mode: forwards;
                 }
             }
-
             .container {
                 display: flex;
                 justify-content: center;
@@ -143,43 +129,36 @@ html {
                 transform: translateX(-50%) translateY(-50%);
                 width: 100%;
                 height: 80%;
-
                 img {
                     position: absolute;
                     animation-duration: $duration-sec;
                     animation-fill-mode: forwards;
                     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-
                 }
             }
         }
-
         .right-nav {
             color: #FFBEB6;
             background-color: #FF2A0D;
             text-align: center;
             padding: 50px 0;
             display: grid;
-
             ul {
                 list-style-type: none;
                 padding: 0;
                 margin: 0;
-
                 li {
                     transform: rotate(90deg);
                     padding: 40px 0;
                     font-size: 14px;
                 }
             }
-
             .radios {
                 position: relative;
                 bottom: 0;
             }
         }
     }
-
     .icons {
         i {
             background-color: #FF5B2D;
@@ -188,7 +167,6 @@ html {
             overflow: hidden;
             font-size: 8px;
             color: white;
-
             &:hover {
                 cursor: pointer;
             }
@@ -200,7 +178,6 @@ html {
     from {
         transform: translateX(-100%);
     }
-
     to {
         transform: translateX(0%);
     }
@@ -210,7 +187,6 @@ html {
     0% {
         left: -100%;
     }
-
     100% {
         left: 200%;
     }
@@ -218,28 +194,17 @@ html {
 
 @keyframes fadeToTop {
     0% {
-        transform: translateY(0);
+        transform: translateY(100%);
     }
-
-    35% {
-        transform: translateY(-100%);
-    }
-
-    65% {
-        transform: translateY(-100%);
-    }
-
     100% {
         transform: translateY(0);
     }
 }
 
-
-.img-zIndex-1 {
+.zIndex-1 {
     z-index: 1;
 }
 
-
-.img-zIndex-2 {
+.zIndex-2 {
     z-index: 2;
 }

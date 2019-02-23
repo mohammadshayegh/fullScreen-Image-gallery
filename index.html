@@ -25,20 +25,27 @@
 
             <div class="content">
                 <div>
-                    <div class="titles">
-                        <div class="title title__item">Gabe</div>
-                        <div class="title title__item">Aspekt</div>
+                    <div class="titles" data-match="matched-lists">
+                        <div class="title title__item" data-match__item="item_1">Gabe</div>
+                        <div class="title title__item" data-match__item="item_2">Aspekt</div>
+                        <div class="title title__item" data-match__item="item_3">Zula</div>
                     </div>
 
-                    <div class="texts">
-                        <div class="text texts__item">
+                    <div class="texts" data-match="matched-lists">
+                        <div class="text texts__item" data-match__item="item_1">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been
                             the industry's standard dummy text ever since the 1500s, when an unknown printer took a
                             galley
                             of type and scrambled it to make a type specimen book.
                         </div>
-                        <div class="text texts__item">
+                        <div class="text texts__item" data-match__item="item_2">
+                            It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                            more-or-less
+                            normal
+                        </div>
+                        <div class="text texts__item" data-match__item="item_3">
                             It is a long established fact that a reader will be distracted by the readable content of a
                             page when looking at its layout. The point of using Lorem Ipsum is that it has a
                             more-or-less
@@ -59,8 +66,9 @@
             <div class="img-cont">
                 <div class="fading-div"></div>
                 <div class="container" data-match="matched-lists">
-                    <img data-match__item="item_1" src="images/img1.png" alt="black" data-match="img-1">
-                    <img data-match__item="item_2" src="images/img2.png" alt="black" data-match="img-2">
+                    <img data-match__item="item_1" class="img-cont__images" src="images/img1.png" alt="black">
+                    <img data-match__item="item_2" class="img-cont__images" src="images/img2.png" alt="black">
+                    <img data-match__item="item_3" class="img-cont__images" src="images/img3.png" alt="black">
                 </div>
 
             </div>
@@ -90,17 +98,42 @@
                 let attrVal = $(this).attr('data-match').slice(1);
 
                 $(this).find(`*[data-match__item]`).on('click', function () {
+
                     let itemConn = $(this).attr('data-match__item'),
-                        relatedItem = $(`div[data-match=${attrVal}]`);
+                        relatedItem = $(`*[data-match=${attrVal}]`);
+
                     doMyTasks(relatedItem.find(`*[data-match__item]`), relatedItem.find(
                         `*[data-match__item = ${itemConn}]`));
                 });
 
                 function doMyTasks(items, connItem) {
-                    items.removeClass('img-zIndex-2').css('animation-name','');
-                    connItem.addClass('img-zIndex-2').css('animation-name','second-img-animation');
+                    items.removeClass('zIndex-2').css('animation-name', '');
+                    // console.log(connItem);
+                    
+                    connItem.each(
+                        function () {
+                            if ($(this).hasClass('img-cont__images')){
+                                $(this).addClass('zIndex-2').css('animation-name', 'second-img-animation');
+                            }
+
+                            if($(this).hasClass('title__item')){
+                                $(this).addClass('zIndex-2').css('animation-name', 'fadeToTop');
+                            }
+
+                            if($(this).hasClass('text texts__item')){
+                                $(this).addClass('zIndex-2').css('animation-name', 'fadeToTop');
+                            }
+                    });
+
+
                     $('.right .img-cont .fading-div').addClass('fading-div-extra');
-                    setTimeout(function(){   $('.right .img-cont .fading-div').removeClass('fading-div-extra');}, 1300);
+
+                    // $('.title__item')
+
+                    setTimeout(function () {
+                        $('.right .img-cont .fading-div').removeClass('fading-div-extra');
+                        // $('.title__item').css('animation-name', '');
+                    }, 1300);
                 }
             });
         })
