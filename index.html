@@ -46,8 +46,7 @@
                             normal
                         </div>
                         <div class="text texts__item" data-match__item="item_3">
-                            It is a long established fact that a reader will be distracted by the readable content of a
-                            page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                            It is a long Zula rolling inthe deep you have my heart and this ur end that it has a
                             more-or-less
                             normal
                         </div>
@@ -107,21 +106,24 @@
                 });
 
                 function doMyTasks(items, connItem) {
-                    items.removeClass('zIndex-2').css('animation-name', '');
+                    items.css('animation-name', '');
                     // console.log(connItem);
                     
                     connItem.each(
                         function () {
                             if ($(this).hasClass('img-cont__images')){
-                                $(this).addClass('zIndex-2').css('animation-name', 'second-img-animation');
+                                $(this).css('animation-name', 'second-img-animation');
+                                $(this).parent().append($(this).remove());
                             }
 
                             if($(this).hasClass('title__item')){
-                                $(this).addClass('zIndex-2').css('animation-name', 'fadeToTop');
+                                $(this).css('animation-name', 'fadeToTop');
+                                $(this).parent().append($(this).remove());
                             }
 
                             if($(this).hasClass('text texts__item')){
-                                $(this).addClass('zIndex-2').css('animation-name', 'fadeToTop');
+                                $(this).css('animation-name', 'fadeToTop');
+                                $(this).parent().append($(this).remove());
                             }
                     });
 
